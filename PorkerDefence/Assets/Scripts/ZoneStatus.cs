@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ZoneStatus : MonoBehaviour
 {
-    public ZoneRank[] _zonerank;
-
     public bool[] _enablezone;
     public ZoneToMove[] _units;
     // Start is called before the first frame update

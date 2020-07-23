@@ -33,14 +33,6 @@ public class ZoneToMove : MonoBehaviour
     public void CallBack()
     {
         _zonehead._enablezone[_posindex] = true;
-        //_zonehead.DisableCheck();
-        for(int i = 0; i < _zonehead._zonerank.Length; i++)
-        {
-            _zonehead._zonerank[i].DeckRankUp();
-        }
-        for(int i = 0; i < _bzone._zonerank.Length; i++)
-        {
-            _bzone._zonerank[i].DeckRankUp();
-        }
+        
     }
 }

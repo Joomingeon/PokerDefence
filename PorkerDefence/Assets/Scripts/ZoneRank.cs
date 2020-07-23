@@ -35,8 +35,6 @@ public class ZoneRank : MonoBehaviour
 
     public ZoneToMove[] _unit;
 
-    public Text _ranktext;
-
     public int[] numRanks;
 
     // Start is called before the first frame update
@@ -152,52 +150,42 @@ public class ZoneRank : MonoBehaviour
     {
         if(_royal && _flush)
         {
-            _ranktext.text = "시너지 : 로얄플러시";
             _rank = Deck.RoyalFlush;
         }
         else if(_straight && _flush)
         {
-            _ranktext.text = "시너지 : 스트레이트플러시";
             _rank = Deck.StraightFlush;
         }
         else if(_fok)
         {
-            _ranktext.text = "시너지 : 포카드";
             _rank = Deck.FourOfAKind;
         }
         else if(_tok && _pair == 2)
         {
-            _ranktext.text = "시너지 : 풀하우스";
             _rank = Deck.FullHouse;
         }
         else if(_flush)
         {
-            _ranktext.text = "시너지 : 플러시";
             _rank = Deck.Flush;
         }
         else if(_straight)
         {
-            _ranktext.text = "시너지 : 스트레이트";
             _rank = Deck.Straight;
         }
         else if(_tok)
         {
-            _ranktext.text = "시너지 : 쓰리오브카인드";
             _rank = Deck.ThreeOfAKind;
         }
         else if(_pair == 2)
         {
-            _ranktext.text = "시너지 : 투페어";
             _rank = Deck.TwoPair;
         }
         else if(_pair == 1)
         {
-            _ranktext.text = "시너지 : 원페어";
             _rank = Deck.Pair;
         }
         else
         {
-            _ranktext.text = "시너지 : 없음";
             _rank = Deck.HighCard;
         }
     }

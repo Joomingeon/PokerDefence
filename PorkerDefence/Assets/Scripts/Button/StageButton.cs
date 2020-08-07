@@ -6,9 +6,7 @@ public class StageButton : MonoBehaviour
 {
     public bool MainScene;
 
-    public DefaultSetting _defaultsetting;
     public string Stagename;
-    public int StageIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +21,6 @@ public class StageButton : MonoBehaviour
 
     public void Click()
     {
-        if(MainScene)
-        {
-            Application.LoadLevel(Stagename);
-        }
-        else
-        {
-            _defaultsetting._Systems.GetComponent<GameManager>()._StageIndex = StageIndex;
-            Application.LoadLevel(Stagename);
-        }
+        Application.LoadLevel(Stagename);
     }
 }

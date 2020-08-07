@@ -25,8 +25,6 @@ public class ZoneStatus : MonoBehaviour
         {
             if(_enablezone[i] == false)
             {
-                _units[i]._nameindex = 99;
-                _units[i]._jobindex = 99;
                 _units[i]._unit = null;
             }
         }

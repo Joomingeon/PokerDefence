@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Button\MenuChangeButton.cs" />
     <Compile Include="Assets\Scripts\Button\StageButton.cs" />
     <Compile Include="Assets\Scripts\CreateButton.cs" />
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\StageSetting.cs" />
     <Compile Include="Assets\Scripts\Systems\DefaultSetting.cs" />
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Unit\EnemyStatus.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitDrag.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitStatus.cs" />
     <Compile Include="Assets\Scripts\ZoneRank.cs" />

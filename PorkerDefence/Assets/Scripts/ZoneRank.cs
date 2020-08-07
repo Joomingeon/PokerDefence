@@ -54,14 +54,6 @@ public class ZoneRank : MonoBehaviour
         _namecheck.Clear();
         _jobcheck.Clear();
 
-        for (int i = 0; i < _unit.Length; i++)
-        {
-            _namecheck.Add(_unit[i]._nameindex);
-            _jobcheck.Add(_unit[i]._jobindex);
-        }
-
-        _namecheck.Sort();
-
         RankOfDeck();
     }
 

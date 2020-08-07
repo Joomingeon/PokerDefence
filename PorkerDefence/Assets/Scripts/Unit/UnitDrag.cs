@@ -12,6 +12,9 @@ public class UnitDrag : MonoBehaviour
     public Vector3 mOffset;
     public float mZCoord;
 
+    public float DefaultSize;
+    public float DragPerSize;
+
     public UnitStatus _unitstatus;
     public ZoneStatus _battlezone;
     public ZoneStatus _keepzone;
@@ -20,6 +23,8 @@ public class UnitDrag : MonoBehaviour
 
     public string _zonename;
     ZoneToMove _zonetomove;
+
+    public bool DeadZone;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +32,15 @@ public class UnitDrag : MonoBehaviour
         _battlezone = GameObject.Find("BattleZone").GetComponent<ZoneStatus>();
         _keepzone = GameObject.Find("KeepZone").GetComponent<ZoneStatus>();
         dOffset = transform.position;
+        DefaultSize = transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        DragPerSize = (transform.position.y / 7) / 10;
+        transform.localScale = new Vector2(DefaultSize - DragPerSize, DefaultSize - DragPerSize);
+
     }
 
     public void OnMouseUp()
@@ -42,7 +50,10 @@ public class UnitDrag : MonoBehaviour
             transform.position = new Vector3(zOffset.x, zOffset.y, -2);
             dOffset = transform.position;
 
-            _zonetomove._unit = gameObject.GetComponent<UnitStatus>();
+            if(_zonetomove._unit != null)
+            {
+                _zonetomove._unit = gameObject.GetComponent<UnitStatus>();
+            }
 
             ZoneDisableCheck();
             
@@ -52,11 +63,6 @@ public class UnitDrag : MonoBehaviour
                 _unitstatus._battleReady = true;
                 _unitstatus.AnimCheck = true;
                 _unitstatus._posindex = _zonetomove._posindex;
-                _zonetomove._starindex = _unitstatus._starindex;
-                _zonetomove._jobindex = _unitstatus._jobindex;
-                _zonetomove._nameindex = _unitstatus._nameindex;
-                _zonetomove._d_dmg = _unitstatus._d_dmg;
-                _zonetomove._d_speed = _unitstatus._d_speed;
                 _zonetomove.CallBack();
 
             }
@@ -66,12 +72,11 @@ public class UnitDrag : MonoBehaviour
                 _unitstatus._battleReady = false;
                 _unitstatus.AnimCheck = true;
                 _unitstatus._posindex = _zonetomove._posindex;
-                _zonetomove._starindex = _unitstatus._starindex;
-                _zonetomove._jobindex = _unitstatus._jobindex;
-                _zonetomove._nameindex = _unitstatus._nameindex;
-                _zonetomove._d_dmg = _unitstatus._d_dmg;
-                _zonetomove._d_speed = _unitstatus._d_speed;
                 _zonetomove.CallBack();
+            }
+            else if(_zonename == "DeadZone")
+            {
+                Destroy(gameObject);
             }
         }
         else
@@ -132,11 +137,17 @@ public class UnitDrag : MonoBehaviour
             _zonename = other.tag;
             _zonetomove = other.gameObject.GetComponent<ZoneToMove>();
         }
+        if(other.tag == "DeadZone")
+        {
+            zCheck = true;
+            _zonename = other.tag;
+            _zonetomove = other.gameObject.GetComponent<ZoneToMove>();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "BattleZone" || other.tag == "KeepZone")
+        if (other.tag == "BattleZone" || other.tag == "KeepZone" || other.tag == "DeadZone")
         {
             zCheck = false;
             _zonetomove = null;

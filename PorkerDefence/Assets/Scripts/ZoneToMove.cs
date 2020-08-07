@@ -8,20 +8,12 @@ public class ZoneToMove : MonoBehaviour
     public ZoneStatus _bzone;
     public int _posindex;
 
-    public int _d_dmg;
-    public int _d_speed;
-
-    public int _starindex;
-    public int _jobindex;
-    public int _nameindex;
-
     public UnitStatus _unit;
 
     // Start is called before the first frame update
     void Start()
     {
-        _jobindex = 99;
-        _nameindex = 99;
+
     }
 
     // Update is called once per frame

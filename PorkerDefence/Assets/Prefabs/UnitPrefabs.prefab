@@ -283,33 +283,11 @@ MonoBehaviour:
   _r_dmg: 0
   _r_speed: 0
   AnimCheck: 0
-  _name:
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
-  - Junior
-  - Queen
-  - King
-  - Ace
-  _job:
-  - H
-  - C
-  - S
-  - D
-  _starindex: 0
   _colors:
   - {fileID: 21300000, guid: bb038659ba1264cb09ceaccc9837f8f2, type: 3}
   - {fileID: 21300000, guid: 7e571bce433744d2fb47a368990d814a, type: 3}
   - {fileID: 21300000, guid: 1d1cd7d7fc1d249dc9daa436d7ca7535, type: 3}
   - {fileID: 21300000, guid: c70b43cd0ce394ffa910e82590012a25, type: 3}
-  _nameindex: 0
-  _jobindex: 0
   _posindex: 0
   _battleReady: 0
   _nameText: {fileID: 809678254}
@@ -326,7 +304,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 0.2}
+  m_Size: {x: 2.5, y: 2.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-424625967676938865
 MonoBehaviour:
@@ -346,6 +324,8 @@ MonoBehaviour:
   dOffset: {x: 0, y: 0, z: 0}
   mOffset: {x: 0, y: 0, z: 0}
   mZCoord: 0
+  DefaultSize: 0
+  DragPerSize: 0
   _unitstatus: {fileID: 0}
   _battlezone: {fileID: 0}
   _keepzone: {fileID: 0}
@@ -375,7 +355,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3205317090291893215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d406acb0b494e42c89fde2604e53e678, type: 2}
   m_CullingMode: 0

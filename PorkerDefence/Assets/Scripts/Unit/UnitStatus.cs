@@ -30,7 +30,7 @@ public class UnitStatus : MonoBehaviour
 
     public SpawnEnemy _spawnenemy;
 
-    public List<EnemyStatus> _EnemyUnits;
+    public List<GameObject> _EnemyUnits;
 
     private void Awake()
     {
@@ -56,6 +56,7 @@ public class UnitStatus : MonoBehaviour
         {
             if(_battleReady)
             {
+                _EnemyUnits = _spawnenemy._enemyUnits;
                 if(_spawnenemy._enemyUnits.Count != 0)
                 {
                     if(_animstate != Animstate.Attack)
@@ -82,14 +83,6 @@ public class UnitStatus : MonoBehaviour
                 }
             }
         }
-
-        for(int i = 0; i < _EnemyUnits.Count; i++)
-        {
-            if(_EnemyUnits[i] == null)
-            {
-                _EnemyUnits.Remove(_EnemyUnits[i]);
-            }
-        }
     }
 
     public void AnimChange()
@@ -108,15 +101,20 @@ public class UnitStatus : MonoBehaviour
     public void Attack()
     {
         //거리계산 후 데미지계산
-        _EnemyUnits[0].HP -= 1;
-        print("Attack!");
+        if(_EnemyUnits.Count != 0)
+        {
+            int i = Random.Range(0, _EnemyUnits.Count);
+            _EnemyUnits[i].GetComponent<EnemyStatus>().HP -= 1;
+            print("Attack!");
+        }
+       
 
         
     }
 
     public void EnemyCheck()
     {
-        if (_spawnenemy._enemyUnits.Count == 0)
+        if (_spawnenemy._enemyUnits.Count != 0)
         {
             AnimCheck = true;
         }

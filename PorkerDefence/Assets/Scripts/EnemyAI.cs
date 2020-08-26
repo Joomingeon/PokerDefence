@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Animator>().SetTrigger("Walk");
         DefaultSize = transform.localScale.x;
     }
 

@@ -243,7 +243,6 @@ GameObject:
   - component: {fileID: 431495472}
   - component: {fileID: 431495471}
   - component: {fileID: 431495470}
-  - component: {fileID: 431495473}
   m_Layer: 5
   m_Name: GameStart
   m_TagString: Untagged
@@ -309,13 +308,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 431495471}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 431495473}
-        m_MethodName: Click
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -362,20 +361,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431495468}
   m_CullTransparentMesh: 0
---- !u!114 &431495473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431495468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd50bde07cb68b4aa25a11d64c62a73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainScene: 1
-  Stagename: FixBattleScene
 --- !u!1 &510986220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,7 +1304,6 @@ GameObject:
   - component: {fileID: 1284089594}
   - component: {fileID: 1284089593}
   - component: {fileID: 1284089592}
-  - component: {fileID: 1284089595}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1392,21 +1376,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1284089595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284089591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f9168944292c574bb858ef92ebdd8fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Systems: {fileID: 0}
-  _instSystems: {fileID: 6321865427086964596, guid: d24a4e8bbc8b9bb458b6ea654da35df7,
-    type: 3}
 --- !u!1 &1454186018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1532,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 615723165}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2001,7 +1970,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1696260901}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.4415
+  m_Size: 0.44150004
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

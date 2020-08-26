@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class CreateButton : MonoBehaviour
+public class CreateButton : MonoBehaviourPun
 {
     public ZoneStatus _zonestatus;
     public RankManager _rankmanager;
@@ -17,8 +18,9 @@ public class CreateButton : MonoBehaviour
 
     public GameObject _parentobj;
 
-    int _spawnCheck;
+    public int _spawnCheck;
 
+    public int LocalIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,11 +89,18 @@ public class CreateButton : MonoBehaviour
 
     public void Click()
     {
-        int _posindex = Random.Range(0, _SpawnPos.Length);
+        photonView.RPC("CreateUnit", RpcTarget.All);
         
+    }
+
+    [PunRPC]
+    public void CreateUnit()
+    {
+        int _posindex = Random.Range(0, _SpawnPos.Length);
+
         for (int i = 0; i < _zonestatus._enablezone.Length; i++)
         {
-            if(_zonestatus._enablezone[i])
+            if (_zonestatus._enablezone[i])
             {
                 _spawnCheck += 1;
             }
@@ -102,6 +111,7 @@ public class CreateButton : MonoBehaviour
         {
             if (!_zonestatus._enablezone[_posindex])
             {
+                //GameObject _spawnunit = PhotonNetwork.Instantiate(_unit.name, _SpawnPos[_posindex].position, Quaternion.identity);
                 GameObject _spawnunit = Instantiate(_unit, _SpawnPos[_posindex].position, Quaternion.identity);
                 _spawnunit.transform.parent = _parentobj.transform;
                 _spawnunit.transform.position = new Vector3(_spawnunit.transform.position.x, _spawnunit.transform.position.y, -2f);
@@ -111,13 +121,18 @@ public class CreateButton : MonoBehaviour
                 UnitRankSet(_spawnunit.GetComponent<UnitStatus>());
                 _zonestatus._units[_posindex]._unit = _spawnunit.GetComponent<UnitStatus>();
                 _spawnunit.GetComponent<UnitDrag>()._prevzone = "KeepZone";
-                
-                _spawnCheck = 0;
+
+                for (int i = 0; i < _rankmanager._unit.Length; i++)
+                {
+                    _rankmanager._unit[i].GetComponent<HandRank>().RefreshHand();
+                }
             }
             else
             {
                 Click();
             }
         }
+
+        _spawnCheck = 0;
     }
 }

@@ -50,7 +50,7 @@ public class UnitDrag : MonoBehaviour
             transform.position = new Vector3(zOffset.x, zOffset.y, -2);
             dOffset = transform.position;
 
-            if(_zonetomove._unit != null)
+            if(_zonetomove._unit == null)
             {
                 _zonetomove._unit = gameObject.GetComponent<UnitStatus>();
             }
